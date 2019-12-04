@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <v-header />
+      <v-header :seller="seller"/>
       <div class="tab border-1px">
         <div class="tab-item">
           <router-link to="/goods">商品</router-link>
@@ -17,11 +17,24 @@
 </template>
 
 <script>
-import VHeader from '@/components/header/header.vue'
+import VHeader from '@/components/header/header.vue';
+import axios from 'axios';
+
 export default {
-    components: {
-      VHeader
+  data () {
+    return {
+      seller:{}
     }
+  },
+  async created () { //数据
+    let { data } = await axios.get('/api/seller');
+    if(data.errno === 0){ 
+      this.seller = data.data;
+    }
+  },
+  components: {
+    VHeader
+  },
 }
 </script>
 <style lang="scss" scoped>

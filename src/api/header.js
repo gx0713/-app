@@ -5,7 +5,7 @@ export default async function (url){
     let res = await axios.get(url);
     const { errno, data } = res.data;
 
-        if (data.errno === 0) { //没错的
+        if (errno === 0) { //没错的
             return data;
         }else{
             console.log("有错的");

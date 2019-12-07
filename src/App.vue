@@ -3,7 +3,8 @@
       <v-header :seller="seller"/>
       <div class="tab border-1px">
         <div class="tab-item">
-          <router-link to="/goods">商品</router-link>
+          <router-link to="/goods" 
+          activeClass="myactive">商品</router-link>
         </div>
         <div class="tab-item">
           <router-link to="/ratings">评价</router-link>
